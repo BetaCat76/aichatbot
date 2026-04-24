@@ -1,0 +1,16 @@
+server:
+  name: "aichatbot"
+  description: "AI Chatbot Server"
+
+telegram:
+  token: "YOUR_TELEGRAM_BOT_TOKEN"
+
+llm:
+  provider: "openai"
+  model: "gpt-4o-mini"
+  api_key: "YOUR_OPENAI_API_KEY"
+  temperature: 0.7
+  max_tokens: 1000
+
+weather:
+  api_key: "YOUR_OPENWEATHERMAP_API_KEY"
