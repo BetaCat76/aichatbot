@@ -1,8 +1,11 @@
+import logging
 import os
 from dataclasses import dataclass
 from typing import Any
 
 import yaml
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -42,7 +45,13 @@ def _resolve_value(value: Any) -> Any:
     """Expand values that start with '$' from environment variables."""
     if isinstance(value, str) and value.startswith("$"):
         env_var = value[1:]
-        return os.environ.get(env_var, value)
+        resolved = os.environ.get(env_var)
+        if resolved is None:
+            logger.warning(
+                "Environment variable '%s' is not set; keeping placeholder value.", env_var
+            )
+            return value
+        return resolved
     return value
 
 

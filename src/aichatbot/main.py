@@ -19,7 +19,7 @@ def _find_config() -> str:
         return env_path
     # Walk up from this file to find config.yaml at project root
     candidates = [
-        Path(__file__).parent.parent.parent.parent / "config.yaml",  # src layout
+        Path(__file__).parents[3] / "config.yaml",  # project root in src layout
         Path.cwd() / "config.yaml",
     ]
     for candidate in candidates:

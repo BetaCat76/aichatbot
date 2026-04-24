@@ -46,7 +46,7 @@ def _make_get_weather_tool(api_key: str):
             return "Invalid OpenWeatherMap API key."
         except Exception as e:
             logger.error("Weather API error for city '%s': %s", city, e)
-            return f"Could not retrieve weather data for '{city}': {e}"
+            return f"Could not retrieve weather data for '{city}'. Please try again later."
 
     return get_weather
 
