@@ -21,11 +21,11 @@ class TelegramConfig:
 
 @dataclass
 class LLMConfig:
-    provider: str
     model: str
     api_key: str
     temperature: float
     max_tokens: int
+    api_url: str = ""
 
 
 @dataclass

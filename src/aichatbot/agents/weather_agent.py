@@ -62,6 +62,7 @@ class WeatherAgent:
         llm = ChatOpenAI(
             model=config.llm.model,
             api_key=config.llm.api_key,  # type: ignore[arg-type]
+            base_url=config.llm.api_url or None,
             temperature=config.llm.temperature,
             max_tokens=config.llm.max_tokens,
         )
